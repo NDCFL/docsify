@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="css/vue.css">
+  <link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
+</head>
+<body>
+  <div id="app"></div>
+  <div id="gitalk-container" style="width: 60%;float: right;margin-top: -300px;margin-right: 50px"></div>
+  <script>
+    window.$docsify = {
+      name: '',
+      repo: '',
+      loadSidebar: true,//不生成默认的左侧菜单
+//      subMaxLevel: 3 //是否显示目录级别
+      loadNavbar: true,//自定义顶部导航
+      coverpage: true,//封面定义
+      onlyCover: true,//只显示封面
+        // 完整配置参数
+      search: {
+          maxAge: 86400000,               // 过期时间，单位毫秒，默认一天
+          paths: [],                      // or 'auto'，匹配文件路径
+          placeholder: '输入关键词',  // 搜索提示框文字， 支持本地化，例子在下面
+          // placeholder: {
+          //   '/zh-cn/': '搜索',
+          //   '/': 'Type to search'
+          // },
+          noData: 'No Results!',          // 找不到结果文字提示，支持本地化，例子在下面
+          // noData: {
+          //   '/zh-cn/': '找不到结果',
+          //   '/': 'No Results'
+          // },
+          depth: 2,                       // 搜索标题的最大程级, 1 - 6
+      }
+    }
+  </script>
+  <script src="js/docsify.min.js"></script>
+  <!-- 引入搜索模块 -->
+  <script src="js/search.js"></script>
+  <script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
+  <script>
+      var gitalk = new Gitalk({
+          clientID: 'b88876b45cd9d0e39d00', // GitHub Application Client ID
+          clientSecret: '7ec68da38fccc80e08fbeff8844273ca8e8f452c', // GitHub Application Client Secret
+          repo: 'gitalk-comment',      // 存放评论的仓库
+          owner: 'ndcfl',          // 仓库的创建者，
+          admin: ['ndcfl'],        // 如果仓库有多个人可以操作，那么在这里以数组形式写出
+          id: location.pathname,      // 用于标记评论是哪个页面的，确保唯一，并且长度小于50
+      })
+
+      gitalk.render('gitalk-container');    // 渲染Gitalk评论组件
+  </script>
+</body>
+</html>
